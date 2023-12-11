@@ -19,8 +19,10 @@ from django.urls import path, include
 
 from django.conf import settings #import settings
 from django.conf.urls.static import static #import static
+from .views import root_route
 
 urlpatterns = [
+    path('', root_route),
     path("admin/", admin.site.urls),
     # path("api/", include("base.urls")),
     path("api/products/", include("base.urls.product_urls")),
