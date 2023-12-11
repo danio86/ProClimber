@@ -48,11 +48,16 @@ if 'DEV' not in os.environ:
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = 'DEV' in os.environ
+
+
 
 ALLOWED_HOSTS = [
-    'localhost', os.environ.get('ALLOWED_HOST'),
+    'localhost',
+    # os.environ.get('ALLOWED_HOST'),
     '8000-danio86-proclimber-khs9tulu0u5.ws-eu106.gitpod.io',
+    'proclimbers-backend.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-danio86-proclimber-khs9tulu0u5.ws-eu106.gitpod.io']
@@ -137,6 +142,22 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+ if 'CLIENT_ORIGIN' in os.environ:
+     CORS_ALLOWED_ORIGINS = [
+         os.environ.get('CLIENT_ORIGIN')
+     ]
+  else:
+     CORS_ALLOWED_ORIGIN_REGEXES = [
+         r"^https://.*\.gitpod\.io$",
+     ]
+
+ CORS_ALLOW_CREDENTIALS = True
+
+
+
+
+
+
 ROOT_URLCONF = "backend.urls"
 
 TEMPLATES = [
@@ -161,12 +182,21 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+
+
+
+if 'DEV' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    } 
+
 
 
 # Password validation
