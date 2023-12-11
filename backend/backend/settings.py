@@ -57,6 +57,7 @@ ALLOWED_HOSTS = [
     'localhost',
     # os.environ.get('ALLOWED_HOST'),
     '8000-danio86-proclimber-khs9tulu0u5.ws-eu106.gitpod.io',
+    'proclimbers-backend-d69c858b50d1.herokuapp.com',
     'proclimbers-backend.herokuapp.com'
 ]
 
