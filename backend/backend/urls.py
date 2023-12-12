@@ -25,7 +25,7 @@ urlpatterns = [
     path('', root_route),
     path("admin/", admin.site.urls),
 
-    path("api/", include("base.urls")),
+    # path("api/", include("base.urls")),
 
     path("api/products/", include("base.urls.product_urls")),
     path("api/users/", include("base.urls.user_urls")),
