@@ -20,15 +20,6 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         serializer = UserSerializerWithToken(self.user).data #self.user is the user that is logged in
         for key, val in serializer.items():
             data[key] = val
-            # this genarates a token for the user that is logged in
-            # in restframework interface, we can see the token generated for the user
-            # with all the user details
-
-        # data['username'] = self.user.username
-        # data['email'] = self.user.email
-        # data['name'] = self.user.name
-        # data['is_staff'] = self.user.is_staff
-        
 
         return data
     
@@ -39,7 +30,6 @@ class MyTokenObtainPairView(TokenObtainPairView):
 @api_view(['POST'])
 def registerUser(request):
     data = request.data #request.data is the data that is sent in the request
-    # print('data:', data)
     try:
         user = User.objects.create(
             first_name = data['name'],
@@ -106,7 +96,6 @@ def updateUser(request, pk):
     user.username = data['email']
     user.email = data['email']
     user.is_staff = data['isAdmin']
-    # user.is_superuser = data['isAdmin']
     user.save()
 
     serializer = UserSerializer(user, many=False)

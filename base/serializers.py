@@ -1,6 +1,3 @@
-# from rest_framework.decorators import api_view
-# from rest_framework.response import Response
-# from .products import products
 from .models import Product, Order, OrderItem, ShippingAddress, Review
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -66,14 +63,14 @@ class ProductSerializer(serializers.ModelSerializer): #serializers.ModelSerializ
 class ShippingAddressSerializer(serializers.ModelSerializer): #serializers.ModelSerializer is a class
     class Meta:
         model = ShippingAddress
-        fields = '__all__' #return all the fields
+        fields = '__all__'
 
 
 
 class OrderItemSerializer(serializers.ModelSerializer): #serializers.ModelSerializer is a class
     class Meta:
         model = OrderItem
-        fields = '__all__' #return all the fields
+        fields = '__all__'
 
 
 
@@ -81,17 +78,9 @@ class OrderSerializer(serializers.ModelSerializer): #serializers.ModelSerializer
     orderItems = serializers.SerializerMethodField(read_only=True)
     shippingAddress = serializers.SerializerMethodField(read_only=True)
     user = serializers.SerializerMethodField(read_only=True)
-    # paymentMethod = serializers.SerializerMethodField(read_only=True)
-    # taxPrice = serializers.SerializerMethodField(read_only=True)
-    # shippingPrice = serializers.SerializerMethodField(read_only=True)
-    # totalPrice = serializers.SerializerMethodField(read_only=True)
-    # isPaid = serializers.SerializerMethodField(read_only=True)
-    # paidAt = serializers.SerializerMethodField(read_only=True)
-    # isDelivered = serializers.SerializerMethodField(read_only=True)
-    # deliveredAt = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Order
-        fields = '__all__' #return all the fields
+        fields = '__all__' 
 
     def get_orderItems(self, obj):
         items = obj.orderitem_set.all() #orderitem_set is a reverse relationship
@@ -110,26 +99,3 @@ class OrderSerializer(serializers.ModelSerializer): #serializers.ModelSerializer
         serializer = UserSerializer(user, many=False)
         return serializer.data
     
-    # def get_paymentMethod(self, obj):
-    #     return obj.paymentMethod
-    
-    # def get_taxPrice(self, obj):
-    #     return obj.taxPrice
-    
-    # def get_shippingPrice(self, obj):
-    #     return obj.shippingPrice
-    
-    # def get_totalPrice(self, obj):
-    #     return obj.totalPrice
-    
-    # def get_isPaid(self, obj):
-    #     return obj.isPaid
-    
-    # def get_paidAt(self, obj):
-    #     return obj.paidAt
-    
-    # def get_isDelivered(self, obj):
-    #     return obj.isDelivered
-    
-    # def get_deliveredAt(self, obj):
-    #     return obj.deliveredAt

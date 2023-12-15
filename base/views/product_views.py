@@ -8,11 +8,7 @@ from rest_framework import status
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-# @api_view(['GET'])
-# def getProducts(request):
-#     products = Product.objects.all()
-#     serializer = ProductSerializer(products, many=True) #many=True means we are serializing multiple products
-#     return Response(serializer.data)
+
 
 @api_view(['GET'])
 def getProducts(request):
@@ -21,23 +17,10 @@ def getProducts(request):
         query = ''
     products = Product.objects.filter(name__icontains=query) #icontains means case insensitive
 
-    # page = request.query_params.get('page')
-    # paginator = Paginator(products, 10)
-
-    # try:
-    #     products = paginator.page(page)
-    # except PageNotAnInteger:
-    #     products = paginator.page(1)
-    # except EmptyPage: #if page number is greater than total pages
-    #     products = paginator.page(paginator.num_pages)
-
-    # if page == None:
-    #     page = 1
 
 
     serializer = ProductSerializer(products, many=True) #many=True means we are serializing multiple products
-    return Response(serializer.data) #paginator.num_pages gives total number of pages
-    # return Response({'products': serializer.data, 'page': page, 'pages': paginator.num_pages}) #paginator.num_pages gives total number of pages
+    return Response(serializer.data)
 
 
 

@@ -13,7 +13,6 @@ User = get_user_model()
 class ProductViewTestCase(TestCase):
     def setUp(self):
         self.client = APIClient()
-        # self.user = User.objects.create_user(username='testuser', password='testpass', is_superuser=True)
         self.user = User.objects.create_user(username='testuser', password='testpass', is_superuser=True, is_staff=True)
         self.product = Product.objects.create(
             user=self.user,
@@ -99,7 +98,6 @@ class UserViewTests(APITestCase):
 
     def test_can_add_order_items(self):
         self.client.force_authenticate(user=self.user)
-        # response = self.client.post('/orders/add/', {
         response = self.client.post(reverse('orders-add'), {
             'orderItems': [{
                 'product': str(self.product._id),
