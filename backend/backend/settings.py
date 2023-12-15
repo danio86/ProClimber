@@ -19,8 +19,16 @@ import dj_database_url
 if os.path.exists('env.py'):
     import env
 
+
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [(
@@ -58,7 +66,7 @@ ALLOWED_HOSTS = [
     # os.environ.get('ALLOWED_HOST'),
     'proclimbers-backend-d69c858b50d1.herokuapp.com',
     'proclimbers-backend.herokuapp.com',
-    '8000-danio86-proclimber-3on27k4ygjs.ws-eu106.gitpod.io',
+    '8000-danio86-proclimber-wri0zltmfj1.ws-eu106.gitpod.io',
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-danio86-proclimber-khs9tulu0u5.ws-eu106.gitpod.io']
@@ -73,6 +81,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'cloudinary_storage',
+    'cloudinary',
 
     "rest_framework",
     "corsheaders",
@@ -135,6 +145,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
 
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -164,7 +175,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [ os.path.join(BASE_DIR, 'staticfiles', 'build')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -237,6 +248,8 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = "assets/images/"
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+WHITENOISE_ROOT = BASE_DIR / 'staticfiles' / 'build'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
