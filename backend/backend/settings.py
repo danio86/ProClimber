@@ -66,7 +66,7 @@ ALLOWED_HOSTS = [
     # os.environ.get('ALLOWED_HOST'),
     'proclimbers-backend-d69c858b50d1.herokuapp.com',
     'proclimbers-backend.herokuapp.com',
-    '8000-danio86-proclimber-wri0zltmfj1.ws-eu106.gitpod.io',
+    '8000-danio86-proclimber-1xo6t4cyb6l.ws-eu106.gitpod.io',
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-danio86-proclimber-khs9tulu0u5.ws-eu106.gitpod.io']
