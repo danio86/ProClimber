@@ -7,7 +7,7 @@ All objects can manipulates manually in the restframework admin panel:
 ![Admin Panel Screenshot](./backend/assets/images/screenshot-adminpanel.png)
 
 
-The Project can be seen [ProClimbers](https//:proclimbers-backend-d69c858b50d1.heroku.com/)
+The Project can be seen [ProClimbers](https://proclimbers-backend-d69c858b50d1.herokuapp.com/)
 
 
 ## Features
