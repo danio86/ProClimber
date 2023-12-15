@@ -7,7 +7,8 @@ All objects can manipulates manually in the restframework admin panel:
 ![Admin Panel Screenshot](./backend/assets/images/screenshot-adminpanel.png)
 
 
-The Project can be seen [here](https://---.herokuapp.com/)
+The Project can be seen [ProClimbers](https//:proclimbers-backend-d69c858b50d1.heroku.com/)
+
 
 ## Features
 
@@ -106,7 +107,6 @@ The project was deployed using Code Institute's mock for Heroku.
         The Heroku app was linked to the repository.
         Deploy was clicked.
 
-<!-- The live link can be found [here](https://---.herokuapp.com/) -->
 
 ## Credits 
 
