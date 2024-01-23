@@ -78,7 +78,19 @@ The Project can be seen [ProClimbers](https://proclimbers-backend-d69c858b50d1.h
     - Passed the code through the Code Institute - PEP8 linter and confirmed that there are no problems.
     - Passt my API Urls in Postman to check tokens
 
-Tested in the Code Institute Heroku terminal and in my local terminal.
+
+    - I have also tested automatically in a tests,py file:
+      - This code is testing different parts of a Django application using Django's built-in testing tools and the Django REST Framework's testing tools.
+
+      - ProductViewTestCase: This class tests the functionality related to products. It sets up a test environment with a user and a product. It then tests getting a product, deleting a product, and updating a product.
+
+      - UserViewTests: This class tests the functionality related to users and orders. It sets up a test environment with a user, an admin, a product, an order, an order item, and a shipping address. It then tests adding order items, deleting a user, and getting a user by their ID.
+
+      - OrderViewTests: This class tests the functionality related to users and their profiles. It sets up a test environment with a user and an admin. It then tests registering a user, updating a user profile, getting a user profile, getting all users, getting a user by their ID, updating a user, and deleting a user.
+
+      - In all these tests, the setUp method is used to create a test environment, and the other methods are used to test different functionalities. The self.client is used to make requests to the server, and the assertEqual method is used to check if the response from the server is as expected.
+
+
 
 ### Validator Testing
 

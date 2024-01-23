@@ -37,13 +37,6 @@ def getProduct(request, pk):
 def createProduct(request):
     user = request.user
     product = Product.objects.create(
-        # user=user,
-        # name='Select Name',
-        # price=0,
-        # brand='Select Brand',
-        # countInStock=0,
-        # category='Select Category',
-        # description=''
         user=user,
         name='',
         price=0,
