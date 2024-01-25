@@ -56,8 +56,9 @@ if 'DEV' not in os.environ:
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = 'DEV' in os.environ
+DEBUG = False
+print(DEBUG, '########')
+# DEBUG = 'DEV' in os.environ
 
 
 
@@ -193,6 +194,7 @@ WSGI_APPLICATION = "backend.wsgi.application"
 
 
 if 'DEV' in os.environ:
+    print('devvvvv')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -200,6 +202,7 @@ if 'DEV' in os.environ:
         }
     }
 else:
+    print('productionnnn')
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     } 
