@@ -38,12 +38,12 @@ def createProduct(request):
     user = request.user
     product = Product.objects.create(
         user=user,
-        name='',
+        name='select',
         price=0,
-        brand='',
+        brand='select',
         countInStock=0,
-        category='',
-        description=''
+        category='select',
+        description='select'
     )
     serializer = ProductSerializer(product, many=False)
     return Response(serializer.data)
