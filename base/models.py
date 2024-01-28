@@ -10,8 +10,7 @@ class Product(models.Model):
     price = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
         
-    # image = models.ImageField(null=True, blank=True, default='sample.jpg')
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, default='sample.jpg')
     # default image is placeholder.png
     brand = models.CharField(max_length=200, null=True, blank=True)
     category = models.CharField(max_length=200, null=True, blank=True)
