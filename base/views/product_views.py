@@ -44,12 +44,6 @@ def createProduct(request):
         countInStock=0,
         category='please select',
         description=''
-        # name=request.data.get('name', ''),
-        # price=request.data.get('price', 0),
-        # brand=request.data.get('brand', ''),
-        # countInStock=request.data.get('countInStock', 0),
-        # category=request.data.get('category', ''),
-        # description=request.data.get('description', '')
     )
     serializer = ProductSerializer(product, many=False)
     return Response(serializer.data)
