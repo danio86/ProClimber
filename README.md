@@ -7,7 +7,9 @@ All objects can manipulates manually in the restframework admin panel:
 ![Admin Panel Screenshot](./backend/assets/images/screenshot-adminpanel.png)
 
 
-The Project can be seen [ProClimbers](https://proclimbers-backend-d69c858b50d1.herokuapp.com/)
+The Project can be seen here: [ProClimbers](https://proclimbers-backend-d69c858b50d1.herokuapp.com/)
+
+The frontend project can be seen here: [ProClimbers-FE](https://proclibers-frontend-5a09a51b15d8.herokuapp.com/)
 
 
 ## Features
@@ -113,7 +115,7 @@ The Project can be seen [ProClimbers](https://proclimbers-backend-d69c858b50d1.h
 The project was deployed using Code Institute's mock for Heroku.
 
     Steps for deployment:
-        This repository was cloned.
+        This repository was cloned from a local VS-Code project.
         A Heroku app was created.
         Added config vars for the secret key, for Cloudinary, and for the PostgreSQL database.
         The Heroku app was linked to the repository.
@@ -127,6 +129,22 @@ The project was deployed using Code Institute's mock for Heroku.
 - Instructions on how to structure backend projects, how to work with databases, how to use Django, PostgreSQL, and Cloudinary, are from [Code Institute - I think therefore I Blog](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/) and
 [Code Institute - Django Rest Framework](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/dc049b343a9b474f8d75822c5fda1582/a706dbb65b2d467a84e1bf67266851b1/)
 - Instructions on how to use postman were taken from [Youtube](https://www.youtube.com/watch?v=cGn_LTFCif0)
+
+### Libraries
+
+- asgiref: ASGI server and utilities. Used for handling asynchronous requests in Django.
+- cloudinary and django-cloudinary-storage: Used for cloud-based image and video management.
+- dj-database-url: Utility to help you load your database into your dictionary from the DATABASE_URL environment variable.
+- Django: The main framework for building your web application.
+- django-cors-headers: Handles Cross-Origin Resource Sharing (CORS) headers in responses.
+- djangorestframework and djangorestframework-simplejwt: Toolkit for building Web APIs. SimpleJWT provides a JSON Web Token - - authentication plugin.
+- gunicorn: A WSGI HTTP server for UNIX, used to serve your Django application.
+- Pillow: Image processing library to handle tasks such as reading, manipulating, and saving images.
+- psycopg2: PostgreSQL adapter for Python, used to connect your Django application to a PostgreSQL database.
+- PyJWT: A Python library to encode and decode JSON Web Tokens (JWT).
+- pytz: Library for timezone calculations.
+- sqlparse: Non-validating SQL parser module for Python.
+- whitenoise: Allows your web app to serve its own static files, simplifying deployment.
 
 ### Personal Advice
 

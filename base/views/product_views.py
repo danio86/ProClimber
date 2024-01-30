@@ -16,9 +16,6 @@ def getProducts(request):
     if query == None:
         query = ''
     products = Product.objects.filter(name__icontains=query) #icontains means case insensitive
-
-
-
     serializer = ProductSerializer(products, many=True) #many=True means we are serializing multiple products
     return Response(serializer.data)
 
